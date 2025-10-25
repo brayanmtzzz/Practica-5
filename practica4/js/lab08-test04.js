@@ -1,71 +1,74 @@
+const countries = csv.split(',');
+console.log(countries);
 
-// convert comma-separated values into an array
+const countriesString = countries.join('-');
+console.log(countriesString);
 
+console.log(Array.isArray(csv));
+console.log(Array.isArray(countries));
 
-// convert array into delimited string
+countries.sort();
+console.log(countries);
 
+countries.reverse();
+console.log(countries);
 
-// check if these are arrays
+countries.shift();
+console.log(countries);
 
+countries.pop();
+console.log(countries);
 
-//  sort a simple array 
+countries.unshift('Spain', 'Portugal');
+console.log(countries);
 
+console.log(countries.includes('Germany'));
 
-// reverse the sort
+console.log(countries.indexOf('Germany'));
 
-
-// remove the first element
-
-
-// remove the last element
-
-
-// add new elements to the front of the array
-
-
-// search for element
-
-
-// search for element index
-
-
-// make a new array by extracting from another array
-
+const extractedCountries = countries.splice(2, 3);
+console.log(extractedCountries);
 
 console.log('---------------------');
 
-// there are other array methods which you will learn in Ch 10 */
-
-
-// use a loop to output all cities whose continent=="NA"
-
-
-console.log('---------------------');
-
-// use a loop to output gallery names whose country=="USA"
-
+for (let i = 0; i < cities.length; i++) {
+    if (cities[i].continent === "NA") {
+        console.log(cities[i].city);
+    }
+}
 
 console.log('---------------------');
 
-// convert JSON colorsAsString to js object
+for (let i = 0; i < galleries.length; i++) {
+    if (galleries[i].location.country === "USA") {
+        console.log(galleries[i].name);
+    }
+}
+
+console.log('---------------------');
+
 const colors = JSON.parse(colorsAsString);
 
-// use a loop to output color name if luminance < 75
-
-
-console.log('---------------------');
-
-// use two nested loops - outer: loop thru colors
-
+for (let i = 0; i < colors.length; i++) {
+    if (colors[i].luminance < 75) {
+        console.log(colors[i].name);
+    }
+}
 
 console.log('---------------------');
 
-/* use a loop output using document.write a unordered
-   list of links to the galleries in the galleries array.
-   Make the label of the link the name property, and the href
-   the url property */
+for (let i = 0; i < colors.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < colors[i].rgb.length; j++) {
+        sum += colors[i].rgb[j];
+    }
+    console.log(`${colors[i].name}: ${sum}`);
+}
 
+console.log('---------------------');
 
-
-
-
+document.write('<ul>');
+for (let i = 0; i < galleries.length; i++) {
+    document.write(`<li><a href="${galleries[i].url}">${galleries[i].name}</a></li>`);
+}
+document.write('</ul>');
